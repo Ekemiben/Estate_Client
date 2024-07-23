@@ -1,4 +1,4 @@
-import { Timestamp } from 'bson';
+
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
