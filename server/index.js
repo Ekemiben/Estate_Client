@@ -7,6 +7,8 @@ import dotenv from "dotenv";
 import cookieParser from 'cookie-parser';
 import authRouter from './routes/auth.route.js';
 import userRouter from './routes/user.route.js';
+import createListing from './routes/listing.route.js'
+import { verifyToken } from './utils/verifyUser.js';
 const app = express();
 dotenv.config()
 app.use(cors());
@@ -33,6 +35,7 @@ app.listen(5000, ()=>{
 // app.use("/server/user",userRouter)
 app.use("/server/auth", authRouter)
 app.use("/server/user", userRouter)
+app.use("/server/listing", verifyToken,  createListing)
 // Middleware to handle error
 app.use((err,req, res, next)=>{
     const statusCode = err.statusCode || 500;
