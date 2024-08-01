@@ -107,7 +107,14 @@ export const signup = async (req, res, next) => {
     }
   }
 
-
+export const signout = async(req, res, next)=>{
+  try{
+    res.clearCookie('access_token');
+    res.status(200).json("user is loged out");
+  }catch(error){
+    next(error)
+  }
+}
 
 
 
