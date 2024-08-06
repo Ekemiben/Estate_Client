@@ -34,7 +34,7 @@ const listingSchema = new mongoose.Schema(
             type: Boolean,
             required: true,
         },
-        packing:{
+        parking:{
             type: Boolean,
             required: true,
         },
@@ -50,7 +50,7 @@ const listingSchema = new mongoose.Schema(
             type: Array,
             required: true,
         },
-        createdByUser:{
+        userRef:{
             type: String,
             required: true,
         },
