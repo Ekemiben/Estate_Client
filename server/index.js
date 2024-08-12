@@ -12,6 +12,7 @@ import createListing from './routes/listing.route.js';
 import getUserListings from './routes/user.route.js'
 import { verifyToken } from './utils/verifyUser.js';
 import  deleteListing  from './routes/listing.route.js';
+import  updateListing  from './routes/listing.route.js';
 const app = express();
 dotenv.config()
 app.use(cors());
@@ -39,6 +40,7 @@ app.listen(5000, ()=>{
 app.use("/server/auth", authRouter);
 app.use("/server/user", userRouter);
 app.use("/server/listing", verifyToken,  createListing, getUserListings, deleteListing);
+app.use("/server/updatelisting/", updateListing);
 
 // Middleware to handle error
 app.use((err,req, res, next)=>{
