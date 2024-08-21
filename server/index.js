@@ -16,7 +16,7 @@ import  updateListing  from './routes/listing.route.js';
 import  getListing  from './routes/listing.route.js';
 import signOut from './routes/auth.route.js'
 import  getListings  from './routes/listing.route.js';
-
+import path from 'path';
 
 import listingRouter from './routes/listing.route.js'
 const app = express();
@@ -31,7 +31,8 @@ mongoose.connect(process.env.DB_CONNECTION)
     console.log(error)
 })
 
-// const app = express();
+const __dirname = path.resolve();
+
 app.use(express.json())
 
 app.use(cookieParser());
@@ -42,6 +43,8 @@ app.listen(5000, ()=>{
 
 
 
+
+
 // app.use("/server/user",userRouter)
 app.use("/server/auth", authRouter, signOut);
 app.use("/server/user", userRouter);
@@ -49,6 +52,14 @@ app.use("/server/user", userRouter);
 // app.use("/server/updatelisting/", updateListing);
 // app.use("/server/listing/", getListing);
 app.use("/server/listing/", listingRouter);
+
+
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
+})
 
 // Middleware to handle error
 app.use((err,req, res, next)=>{
