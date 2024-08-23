@@ -5,20 +5,20 @@ import dotenv from "dotenv";
 // import userRouter from './routes/user.route.js'
 // import authRouter from './controllers/auth.controller.js';
 import cookieParser from 'cookie-parser';
-import authRouter from './routes/auth.route.js';
-import userRouter from './routes/user.route.js';
-import createListing from './routes/listing.route.js';
+import authRouter from './server/routes/auth.route.js';
+import userRouter from './server/routes/user.route.js';
+import createListing from './server/routes/listing.route.js';
 // import getListings from './routes/getlisting.route.js'
-import getUserListings from './routes/user.route.js'
-import { verifyToken } from './utils/verifyUser.js';
-import  deleteListing  from './routes/listing.route.js';
-import  updateListing  from './routes/listing.route.js';
-import  getListing  from './routes/listing.route.js';
-import signOut from './routes/auth.route.js'
-import  getListings  from './routes/listing.route.js';
+import getUserListings from './server/routes/user.route.js'
+import { verifyToken } from './server/utils/verifyUser.js';
+import  deleteListing  from './server/routes/listing.route.js';
+import  updateListing  from './server/routes/listing.route.js';
+import  getListing  from './server/routes/listing.route.js';
+import signOut from './server/routes/auth.route.js'
+import  getListings  from './server/routes/listing.route.js';
 import path from 'path';
 
-import listingRouter from './routes/listing.route.js'
+import listingRouter from './server/routes/listing.route.js'
 const app = express();
 dotenv.config()
 app.use(cors());
